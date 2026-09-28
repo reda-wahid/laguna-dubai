@@ -1,0 +1,90 @@
+{
+  "entities": {
+    "MenuData": {
+      "title": "MenuData",
+      "description": "Entire persistent menu catalog structure with sections, categories and items",
+      "type": "object",
+      "properties": {
+        "sections": {
+          "type": "string",
+          "description": "JSON string or array of main sections (food and drinks)"
+        },
+        "lastModified": {
+          "type": "number",
+          "description": "Timestamp of the last modification"
+        },
+        "updatedBy": {
+          "type": "string",
+          "description": "Identifier of the modifier or admin device"
+        }
+      },
+      "required": ["sections", "lastModified"]
+    },
+    "UploadedImage": {
+      "title": "UploadedImage",
+      "description": "Persistent record for uploaded product image assets",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique image identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable label or original filename"
+        },
+        "dataUrl": {
+          "type": "string",
+          "description": "Base64 data URL of the image"
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Creation timestamp in milliseconds"
+        }
+      },
+      "required": ["id", "dataUrl", "createdAt"]
+    },
+    "ProductItem": {
+      "title": "ProductItem",
+      "description": "Individual menu product item",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Product unique ID"
+        },
+        "name_en": {
+          "type": "string",
+          "description": "English name of the item"
+        },
+        "name_ar": {
+          "type": "string",
+          "description": "Arabic name of the item"
+        },
+        "image": {
+          "type": "string",
+          "description": "Image URL or data URI"
+        },
+        "lastModified": {
+          "type": "number",
+          "description": "Timestamp of last modification"
+        }
+      },
+      "required": ["id", "name_en", "name_ar", "image"]
+    }
+  },
+  "firestore": {
+    "/menu/{menuId}": {
+      "schema": "MenuData",
+      "description": "Central persistent menu document containing all active menu items and pricing"
+    },
+    "/uploaded_images/{imageId}": {
+      "schema": "UploadedImage",
+      "description": "Uploaded image assets stored permanently in Firestore"
+    },
+    "/products/{productId}": {
+      "schema": "ProductItem",
+      "description": "Individual product synchronization collection"
+    }
+  }
+}

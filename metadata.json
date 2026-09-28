@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Remix Remix LAGUNA DUBAI – Restaurant \u0026 Café Menu",
+  "description": "Bilingual digital menu for LAGUNA DUBAI – Restaurant \u0026 Café, luxury waterfront dining experience. Good Drinks, Better Moments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,2533 @@
+export interface PriceOption {
+  label_en: string;
+  label_ar: string;
+  price: number;
+}
+
+export interface MenuItem {
+  id: string;
+  name_en: string;
+  name_ar: string;
+  desc_en?: string;
+  desc_ar?: string;
+  price?: number;
+  prices?: PriceOption[];
+  isLagunaSpecial?: boolean;
+  isChefsChoice?: boolean;
+  badgeType?: 'none' | 'special' | 'chefs_choice';
+  isAvailable?: boolean;
+  image: string;
+}
+
+export interface SubCategory {
+  id: string;
+  name_en: string;
+  name_ar: string;
+  desc_en?: string;
+  desc_ar?: string;
+  items: MenuItem[];
+}
+
+export interface MainSection {
+  id: 'food' | 'drinks';
+  name_en: string;
+  name_ar: string;
+  subcategories: SubCategory[];
+}
+
+export type Language = 'ar' | 'en';
+
+export const RESTAURANT_INFO = {
+  name_en: 'LAGUNA DUBAI',
+  name_ar: 'لاجونا دبي',
+  subtitle_en: 'Restaurant & Café',
+  subtitle_ar: 'مطعم وكافيه',
+  tagline_en: 'Good Drinks, Better Moments',
+  tagline_ar: 'مشروبات مميزة، لحظات تدوم',
+  location_en: 'Under Zefta Bridge, Mit Ghamr - Dakahlia',
+  location_ar: 'أسفل كوبري زفتى، ميت غمر - الدقهلية',
+  currency_en: 'EGP',
+  currency_ar: 'ج.م',
+  welcome_en: 'Welcome to Laguna Dubai. Indulge in artisanal culinary creations and handcrafted beverages overlooking our tranquil waterfront terrace.',
+  welcome_ar: 'أهلاً بكم في لاجونا دبي. استمتعوا بأشهى المأكولات والمشروبات المميزة في أجواء راقية على ضفاف النيل.',
+};
+
+export const MENU_DATA: MainSection[] = [
+  {
+    "id": "food",
+    "name_en": "FOOD",
+    "name_ar": "الأكل",
+    "subcategories": [
+      {
+        "items": [
+          {
+            "name_en": "Crispy Chicken Strips Crepe",
+            "id": "crepe-strips",
+            "isAvailable": true,
+            "desc_en": "Crispy chicken strips, melted cheese, special sauce",
+            "name_ar": "كريب استربس",
+            "image": "/images/crepes/triangular_crepe_chicken.jpg",
+            "desc_ar": "دجاج استربس مقرمش - جبنة",
+            "isLagunaSpecial": false,
+            "price": 180
+          },
+          {
+            "id": "crepe-pane",
+            "price": 160,
+            "name_en": "Chicken Pane Crepe",
+            "desc_en": "Golden chicken pane, melted cheese, special sauce",
+            "desc_ar": "دجاج بانيه - جبنة",
+            "name_ar": "كريب بانيه",
+            "image": "/images/crepes/triangular_crepe_chicken.jpg"
+          },
+          {
+            "id": "crepe-cordon-bleu",
+            "price": 200,
+            "name_ar": "كريب كوردن بلو",
+            "desc_en": "Chicken cordon bleu, smoked turkey, melted cheese",
+            "desc_ar": "دجاج كوردن بلو - جبنة",
+            "name_en": "Cordon Bleu Crepe",
+            "image": "/images/crepes/triangular_crepe_chicken.jpg"
+          },
+          {
+            "desc_ar": "دجاج كرانشي إكسترا - جبنة",
+            "image": "/images/crepes/triangular_crepe_chicken.jpg",
+            "desc_en": "Extra crunchy fried chicken, melted cheese, signature drizzle",
+            "name_en": "Super Crunchy Chicken Crepe",
+            "price": 190,
+            "id": "crepe-super-crunchy",
+            "name_ar": "كريب سوبر كرانشي"
+          },
+          {
+            "name_ar": "كريب شيش طاووق",
+            "image": "/images/crepes/triangular_crepe_chicken.jpg",
+            "name_en": "Grilled Shish Tawook Crepe",
+            "desc_ar": "شيش طاووق مشوي - جبنة",
+            "id": "crepe-shish-tawook",
+            "price": 180,
+            "desc_en": "Charcoal grilled shish tawook, melted cheese, garlic herbs"
+          },
+          {
+            "desc_en": "Sautéed chicken fajita, colorful bell peppers, melted cheese",
+            "id": "crepe-chicken-fajita",
+            "desc_ar": "دجاج - فلفل ألوان - جبنة",
+            "image": "/images/crepes/triangular_crepe_chicken.jpg",
+            "name_en": "Chicken Fajita Crepe",
+            "name_ar": "كريب فاهيتا دجاج",
+            "price": 180
+          },
+          {
+            "image": "/images/crepes/triangular_crepe_chicken.jpg",
+            "name_ar": "كريب ميكس دجاج",
+            "desc_ar": "ميكس دجاج - جبنة",
+            "desc_en": "Combination of crispy strips, pane and shish tawook, melted cheese",
+            "id": "crepe-mix-chicken",
+            "name_en": "Mix Chicken Crepe",
+            "price": 200
+          },
+          {
+            "price": 170,
+            "name_ar": "كريب زنجر",
+            "desc_en": "Spicy crispy chicken zinger, melted cheese, fiery touch",
+            "image": "/images/crepes/triangular_crepe_chicken.jpg",
+            "desc_ar": "دجاج زنجر حار - جبنة",
+            "id": "crepe-zinger",
+            "name_en": "Spicy Zinger Crepe"
+          },
+          {
+            "desc_en": "Warm crepe drizzled with rich chocolate or Lotus spread with fresh seasonal fruits",
+            "desc_ar": "شوكولاتة أو لوتس مع فواكه طازة",
+            "price": 120,
+            "id": "crepe-choco-lotus-fruit",
+            "name_en": "Chocolate / Lotus & Fruits Crepe",
+            "image": "/images/crepes/triangular_crepe_sweet.jpg",
+            "name_ar": "كريب شوكولاتة أو لوتس وفواكه"
+          },
+          {
+            "name_ar": "كريب موتزاريلا",
+            "id": "crepe-mozzarella",
+            "image": "/images/crepes/triangular_crepe_cheese.jpg",
+            "name_en": "Melted Mozzarella Crepe",
+            "desc_ar": "جبنة موتزاريلا مذابة",
+            "price": 100,
+            "desc_en": "Stretchy premium molten mozzarella cheese"
+          },
+          {
+            "price": 145,
+            "name_en": "Mix Cheese Crepe",
+            "desc_en": "Triple cheese blend of mozzarella, aged roumi and cheddar",
+            "desc_ar": "موتزاريلا - رومي - شيدر",
+            "id": "crepe-mix-cheese",
+            "image": "/images/crepes/triangular_crepe_cheese.jpg",
+            "name_ar": "كريب ميكس جبن"
+          },
+          {
+            "name_ar": "كريب جبنة رومي",
+            "image": "/images/crepes/triangular_crepe_cheese.jpg",
+            "id": "crepe-roumi",
+            "name_en": "Roumi Cheese Crepe",
+            "price": 100,
+            "desc_ar": "جبنة رومي مذابة",
+            "desc_en": "Melted aged Egyptian roumi cheese with rich savory flavor"
+          },
+          {
+            "name_en": "Baladi Fresh Meat Crepe",
+            "desc_ar": "لحمة بلدي طازة - جبنة",
+            "image": "/images/crepes/triangular_crepe_meat.jpg",
+            "desc_en": "Fresh Egyptian baladi minced meat with chef spices and cheese",
+            "id": "crepe-baladi-meat",
+            "name_ar": "كريب لحمة بلدي",
+            "price": 200
+          },
+          {
+            "id": "crepe-kofta",
+            "name_en": "Grilled Kofta Crepe",
+            "desc_en": "Charbroiled spiced beef kofta, melted cheese, tahini hint",
+            "desc_ar": "كفتة مشوية متبلة - جبنة",
+            "price": 190,
+            "name_ar": "كريب كفتة",
+            "image": "/images/crepes/triangular_crepe_meat.jpg"
+          },
+          {
+            "name_en": "Sausage Crepe",
+            "desc_ar": "سوسيس متبل - جبنة مذابة",
+            "image": "/images/crepes/triangular_crepe_meat.jpg",
+            "desc_en": "Seasoned frankfurter sausage with molten cheese and savory sauce",
+            "id": "crepe-sausage",
+            "name_ar": "كريب سوسيس",
+            "price": 150
+          },
+          {
+            "image": "/images/crepes/triangular_crepe_meat.jpg",
+            "name_ar": "كريب برجر",
+            "desc_en": "Flame-grilled beef burger patty, special signature sauce, cheese",
+            "price": 160,
+            "id": "crepe-burger",
+            "desc_ar": "قطعة برجر لحم - صلصة خاصة - جبنة",
+            "name_en": "Beef Burger Crepe"
+          },
+          {
+            "name_en": "Meat Lovers Mix Crepe",
+            "desc_ar": "لحم - كفتة - سوسيس - جبنة",
+            "image": "/images/crepes/triangular_crepe_meat.jpg",
+            "desc_en": "Trio of minced beef, grilled kofta, and sausage with melted cheese",
+            "id": "crepe-mix-meat",
+            "name_ar": "كريب ميكس لحوم",
+            "price": 200
+          }
+        ],
+        "name_ar": "الكريبات",
+        "desc_ar": "كريبات رول ومثلثات مقرمشة محشوة بأجود أنواع الدجاج واللحوم والأجبان",
+        "desc_en": "Crispy savory and sweet French crepes loaded with premium fillings",
+        "id": "crepes",
+        "name_en": "Crepes"
+      },
+      {
+        "desc_ar": "كل كومبو: ساندوتش + بطاطس كرسبي + بيبسي",
+        "desc_en": "Every combo includes: Sandwich + Crispy Fries + Ice-Cold Pepsi",
+        "name_en": "Combo Meals",
+        "items": [
+          {
+            "name_en": "Chicken Liver Combo",
+            "price": 150,
+            "desc_ar": "ساندوتش كبدة دجاج مشوية متبلة + بطاطس كرسبي + بيبسي",
+            "desc_en": "Seasoned chicken liver sandwich + golden crispy fries + Pepsi",
+            "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80",
+            "id": "combo-chicken-liver",
+            "name_ar": "كومبو كبدة دجاج"
+          },
+          {
+            "price": 180,
+            "name_ar": "كومبو فاهيتا",
+            "name_en": "Chicken Fajita Combo",
+            "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80",
+            "id": "combo-fajita",
+            "desc_ar": "ساندوتش فاهيتا دجاج مع فلفل ألوان + بطاطس كرسبي + بيبسي",
+            "desc_en": "Chicken fajita sandwich with bell peppers + crispy fries + Pepsi"
+          },
+          {
+            "desc_ar": "ساندوتش كبدة لحم طازة بخلطة إسكندراني + بطاطس كرسبي + بيبسي",
+            "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Fresh meat liver with Alexandrian spices + crispy fries + Pepsi",
+            "name_en": "Lamb Liver Combo",
+            "price": 190,
+            "id": "combo-meat-liver",
+            "name_ar": "كومبو كبدة لحم"
+          },
+          {
+            "price": 201,
+            "name_ar": "كومبو لحم بالبطاطس",
+            "id": "combo-meat-potato",
+            "desc_en": "Spiced minced meat with golden fries sandwich + crispy fries + Pepsi",
+            "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "ساندوتش لحم بالبطاطس والصلصة الخاصة + بطاطس كرسبي + بيبسي",
+            "name_en": "Minced Meat & Potato Combo"
+          },
+          {
+            "desc_en": "Tender beef slices with melted cheddar and caramelized onions + crispy fries + Pepsi",
+            "price": 210,
+            "desc_ar": "ساندوتش شرائح فيلي لحم بجبنة شيدر وبصل وفلفل + بطاطس كرسبي + بيبسي",
+            "name_en": "Philly Cheesesteak Combo",
+            "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "كومبو فيلي",
+            "id": "combo-philly"
+          },
+          {
+            "desc_en": "Crispy chicken breast with Francisco sauce and cheese + crispy fries + Pepsi",
+            "desc_ar": "ساندوتش فرانسيسكو دجاج مع صلصة فرانسيسكو وجبنة مذابة + بطاطس كرسبي + بيبسي",
+            "price": 215,
+            "id": "combo-francisco",
+            "name_en": "Francisco Chicken Combo",
+            "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "كومبو فرانسيسكو"
+          },
+          {
+            "name_en": "Twister Chicken Wrap Combo",
+            "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80",
+            "id": "combo-twister",
+            "desc_ar": "ساندوتش تويستر دجاج ملفوف مقرمش بالخس والصوص + بطاطس كرسبي + بيبسي",
+            "desc_en": "Crispy chicken twister wrap with fresh lettuce and sauce + crispy fries + Pepsi",
+            "price": 220,
+            "name_ar": "كومبو تويستر"
+          }
+        ],
+        "name_ar": "الكومبو",
+        "id": "combo"
+      },
+      {
+        "name_en": "Pizza",
+        "id": "pizza",
+        "desc_en": "Artisan stone-baked crust with premium mozzarella (M Medium / L Large)",
+        "desc_ar": "عجينة إيطالية مخبوزة على الحطب مع جبنة موتزاريلا طبيعية (وسط M / كبير L)",
+        "name_ar": "البيتزا",
+        "items": [
+          {
+            "desc_en": "Smoked turkey slices, chicken, tomato sauce, mozzarella",
+            "prices": [
+              {
+                "label_en": "M",
+                "price": 145,
+                "label_ar": "وسط"
+              },
+              {
+                "label_ar": "كبير",
+                "price": 200,
+                "label_en": "L"
+              }
+            ],
+            "desc_ar": "تركي مدخن - دجاج - صلصة طماطم - موتزاريلا",
+            "id": "pizza-turkey-chicken",
+            "name_en": "Smoked Turkey & Chicken Pizza",
+            "name_ar": "بيتزا تركي مدخن دجاج",
+            "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "prices": [
+              {
+                "label_en": "M",
+                "label_ar": "وسط",
+                "price": 140
+              },
+              {
+                "label_en": "L",
+                "price": 185,
+                "label_ar": "كبير"
+              }
+            ],
+            "image": "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "بيتزا سجق",
+            "desc_ar": "سجق متبل - صلصة طماطم - موتزاريلا",
+            "desc_en": "Spiced oriental sujuk, tomato sauce, mozzarella",
+            "name_en": "Sujuk Pizza",
+            "id": "pizza-sujuk"
+          },
+          {
+            "prices": [
+              {
+                "price": 140,
+                "label_en": "M",
+                "label_ar": "وسط"
+              },
+              {
+                "label_ar": "كبير",
+                "label_en": "L",
+                "price": 185
+              }
+            ],
+            "name_ar": "بيتزا استريس دجاج",
+            "id": "pizza-chicken-strips",
+            "desc_en": "Crispy chicken strips, special sauce, mozzarella",
+            "desc_ar": "استريس دجاج مقرمش - صلصة خاصة - موتزاريلا",
+            "name_en": "Chicken Strips Pizza",
+            "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "pizza-meat",
+            "prices": [
+              {
+                "label_ar": "وسط",
+                "label_en": "M",
+                "price": 160
+              },
+              {
+                "label_ar": "كبير",
+                "price": 200,
+                "label_en": "L"
+              }
+            ],
+            "name_ar": "بيتزا لحم",
+            "image": "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "لحم مفروم متبل - صلصة طماطم - موتزاريلا",
+            "desc_en": "Seasoned minced meat, tomato sauce, mozzarella",
+            "name_en": "Meat Pizza"
+          },
+          {
+            "prices": [
+              {
+                "label_ar": "وسط",
+                "label_en": "M",
+                "price": 155
+              },
+              {
+                "label_en": "L",
+                "label_ar": "كبير",
+                "price": 200
+              }
+            ],
+            "name_en": "Chicken Shish Tawook Pizza",
+            "desc_en": "Grilled shish tawook chicken, garlic herb sauce, mozzarella",
+            "id": "pizza-chicken-shish",
+            "desc_ar": "شيش طاووق مشوي - صلصة ثوم - موتزاريلا",
+            "name_ar": "بيتزا شيش طاووق دجاج",
+            "image": "https://images.unsplash.com/photo-1588315029754-2dd089d39a1a?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "pizza-vegetables",
+            "name_ar": "بيتزا خضروات",
+            "desc_en": "Fresh bell peppers, mushrooms, kalamata olives, tomato sauce, mozzarella",
+            "desc_ar": "خضار مشكل - صلصة طماطم - موتزاريلا",
+            "prices": [
+              {
+                "price": 125,
+                "label_ar": "وسط",
+                "label_en": "M"
+              },
+              {
+                "label_ar": "كبير",
+                "label_en": "L",
+                "price": 165
+              }
+            ],
+            "image": "https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Vegetables Pizza"
+          },
+          {
+            "name_ar": "بيتزا ببيروني",
+            "prices": [
+              {
+                "price": 150,
+                "label_en": "M",
+                "label_ar": "وسط"
+              },
+              {
+                "label_en": "L",
+                "label_ar": "كبير",
+                "price": 190
+              }
+            ],
+            "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Pepperoni Pizza",
+            "desc_en": "Smoked beef pepperoni slices, rich tomato sauce, mozzarella",
+            "id": "pizza-pepperoni",
+            "desc_ar": "ببيروني مدخن - صلصة طماطم - موتزاريلا"
+          },
+          {
+            "prices": [
+              {
+                "price": 130,
+                "label_en": "M",
+                "label_ar": "وسط"
+              },
+              {
+                "label_en": "L",
+                "price": 200,
+                "label_ar": "كبير"
+              }
+            ],
+            "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "بيتزا فاهيتا دجاج",
+            "desc_ar": "فاهيتا دجاج - فلفل ألوان - صلصة خاصة - موتزاريلا",
+            "desc_en": "Marinated chicken fajita, colorful peppers, special sauce, mozzarella",
+            "id": "pizza-fajita-chicken",
+            "name_en": "Chicken Fajita Pizza"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1573821663912-569905455b1c?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "بيتزا ليفر تشيز",
+            "prices": [
+              {
+                "price": 140,
+                "label_ar": "وسط",
+                "label_en": "M"
+              },
+              {
+                "price": 200,
+                "label_ar": "كبير",
+                "label_en": "L"
+              }
+            ],
+            "name_en": "Four Cheeses Pizza (Liver Cheese)",
+            "id": "pizza-liver-cheese",
+            "desc_ar": "موتزاريلا - شيدر - جبنة رومي - بارميزان",
+            "desc_en": "Mozzarella, cheddar, roumi and parmesan cheeses blend"
+          },
+          {
+            "name_ar": "بيتزا مارجريتا",
+            "id": "pizza-margherita",
+            "prices": [
+              {
+                "label_en": "M",
+                "label_ar": "وسط",
+                "price": 100
+              },
+              {
+                "label_ar": "كبير",
+                "label_en": "L",
+                "price": 150
+              }
+            ],
+            "name_en": "Margherita Pizza",
+            "desc_en": "Italian classic tomato sauce, pure mozzarella, aromatic fresh basil",
+            "image": "https://images.unsplash.com/photo-1604382355076-af4b0eb60143?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "صلصة طماطم - موتزاريلا - ريحان"
+          },
+          {
+            "name_en": "Family Pizza (Build Your Own)",
+            "id": "pizza-family",
+            "desc_en": "Extra-large family size with your choice of favorite toppings and cheeses",
+            "price": 400,
+            "desc_ar": "اختار مكوناتك - حجم عائلي",
+            "isLagunaSpecial": true,
+            "name_ar": "بيتزا فاميلي (Build Your Own)",
+            "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "desc_en": "Small kids pizza accompanied by a complimentary fresh juice",
+            "desc_ar": "حجم صغير - مع عصير هدية",
+            "price": 150,
+            "name_en": "Laguna Kids Pizza",
+            "id": "pizza-kids",
+            "name_ar": "بيتزا أطفال لاجونا دبي",
+            "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=80"
+          }
+        ]
+      },
+      {
+        "desc_ar": "ساندوتشات طازجة مخبوزة بعناية (صغير / كبير)",
+        "desc_en": "Freshly prepared gourmet sandwiches on toasted baguettes (Small / Large)",
+        "name_en": "Sandwiches",
+        "id": "sandwiches",
+        "items": [
+          {
+            "id": "sand-chicken-liver",
+            "name_ar": "ساندوتش كبدة دجاج",
+            "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80",
+            "prices": [
+              {
+                "label_ar": "صغير",
+                "price": 100,
+                "label_en": "Small"
+              },
+              {
+                "label_en": "Large",
+                "price": 120,
+                "label_ar": "كبير"
+              }
+            ],
+            "name_en": "Chicken Liver Sandwich",
+            "desc_en": "Grilled marinated chicken liver with fresh herbs and vegetables",
+            "desc_ar": "دجاج مشوي - خضار"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=800&q=80",
+            "id": "sand-chicken-fajita",
+            "name_ar": "ساندوتش فاهيتا دجاج",
+            "prices": [
+              {
+                "label_en": "Small",
+                "label_ar": "صغير",
+                "price": 100
+              },
+              {
+                "label_ar": "كبير",
+                "price": 120,
+                "label_en": "Large"
+              }
+            ],
+            "desc_ar": "فاهيتا دجاج - جبنة - خضار",
+            "desc_en": "Sautéed chicken fajita, melted cheese, bell peppers",
+            "name_en": "Chicken Fajita Sandwich"
+          },
+          {
+            "name_en": "Fresh Lamb Liver Sandwich",
+            "desc_en": "Tender fresh lamb liver with signature sauce and crisp veggies",
+            "desc_ar": "كبدة غنم طازة - صلصة خاصة - خضار طازة",
+            "id": "sand-lamb-liver",
+            "prices": [
+              {
+                "label_ar": "صغير",
+                "label_en": "Small",
+                "price": 120
+              },
+              {
+                "price": 130,
+                "label_en": "Large",
+                "label_ar": "كبير"
+              }
+            ],
+            "name_ar": "ساندوتش كبدة غنم",
+            "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "name_en": "Meat & Crispy Potato Sandwich",
+            "id": "sand-meat-potato",
+            "desc_en": "Seasoned minced beef, crispy fries, signature house sauce",
+            "desc_ar": "لحم مفروم - بطاطس كرسبي - صلصة خاصة",
+            "name_ar": "ساندوتش لحم بالبطاطس",
+            "prices": [
+              {
+                "price": 120,
+                "label_ar": "صغير",
+                "label_en": "Small"
+              },
+              {
+                "label_en": "Large",
+                "price": 150,
+                "label_ar": "كبير"
+              }
+            ],
+            "image": "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80",
+            "id": "sand-philly-meat",
+            "name_ar": "ساندوتش فيلي لحم",
+            "prices": [
+              {
+                "price": 140,
+                "label_en": "Small",
+                "label_ar": "صغير"
+              },
+              {
+                "label_ar": "كبير",
+                "label_en": "Large",
+                "price": 160
+              }
+            ],
+            "desc_ar": "شرائح فيلي لحم - جبنة مذابة - فلفل وبصل",
+            "desc_en": "Thinly sliced tender steak, melted cheese, sautéed onions and peppers",
+            "name_en": "Philly Beef Cheesesteak Sandwich"
+          },
+          {
+            "name_ar": "ساندوتش فرانسيسكو دجاج",
+            "prices": [
+              {
+                "label_en": "Small",
+                "price": 120,
+                "label_ar": "صغير"
+              },
+              {
+                "label_ar": "كبير",
+                "label_en": "Large",
+                "price": 155
+              }
+            ],
+            "image": "https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Francisco Chicken Sandwich",
+            "id": "sand-francisco-chicken",
+            "desc_en": "Crispy seasoned chicken, creamy Francisco dressing, melted cheese",
+            "desc_ar": "دجاج مقرمش - صلصة فرانسيسكو - جبنة مذابة"
+          },
+          {
+            "name_ar": "ساندوتش تويستر دجاج",
+            "id": "sand-twister-chicken",
+            "prices": [
+              {
+                "label_ar": "صغير",
+                "label_en": "Small",
+                "price": 120
+              },
+              {
+                "price": 160,
+                "label_en": "Large",
+                "label_ar": "كبير"
+              }
+            ],
+            "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Twister Chicken Wrap",
+            "desc_ar": "دجاج ملفوف مقرمش - خس - صلصة خاصة",
+            "desc_en": "Crispy chicken strips wrapped in tortilla with lettuce and special sauce"
+          },
+          {
+            "desc_en": "Charbroiled hot dog sausage, mustard, ketchup, fresh lettuce",
+            "desc_ar": "سجق هوت دوج مشوي - مسطردة وكاتشب - خس",
+            "id": "sand-hot-dog",
+            "name_en": "Grilled Hot Dog Sandwich",
+            "image": "https://images.unsplash.com/photo-1619740455993-9e612b1af08a?auto=format&fit=crop&w=800&q=80",
+            "prices": [
+              {
+                "price": 120,
+                "label_ar": "صغير",
+                "label_en": "Small"
+              },
+              {
+                "label_ar": "كبير",
+                "label_en": "Large",
+                "price": 140
+              }
+            ],
+            "name_ar": "ساندوتش هوت دوج"
+          }
+        ],
+        "name_ar": "الساندوتشات"
+      },
+      {
+        "desc_en": "Artisanal pastries, cakes, and gourmet desserts",
+        "desc_ar": "كيك وحلويات فاخرة محضرة بأجود المكونات",
+        "name_en": "Desserts",
+        "items": [
+          {
+            "desc_en": "Rich warm chocolate cake with molten chocolate core",
+            "price": 90,
+            "desc_ar": "كيكة شوكولاتة دافئة مع قلب شوكولاتة غني يذوب عند التقديم",
+            "id": "dessert-molten-cake",
+            "name_en": "Molten Lava Cake",
+            "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "مولتن كيك"
+          },
+          {
+            "price": 100,
+            "name_en": "Large Molten Lava Cake",
+            "id": "dessert-molten-cake-large",
+            "desc_en": "Double-sized molten lava chocolate cake with ice cream scoop",
+            "desc_ar": "حجم كبير غني بصوص الشوكولاتة الذائب",
+            "name_ar": "مولتن كيك (كبير)",
+            "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "name_ar": "تشيز كيك",
+            "image": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=800&q=80",
+            "id": "dessert-cheesecake",
+            "name_en": "New York Cheesecake",
+            "desc_ar": "تشيز كيك نيويورك الفاخر مع صوص التوت البري",
+            "price": 80,
+            "desc_en": "Velvety cream cheesecake on buttery biscuit base with fruit coulis"
+          },
+          {
+            "name_ar": "فادج عين الجمل",
+            "price": 80,
+            "id": "dessert-fudge-walnut",
+            "name_en": "Walnut Fudge Cake",
+            "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Decadent dark chocolate fudge topped with crunchy toasted walnuts",
+            "desc_ar": "فادج شوكولاتة غني مع حبات عين الجمل المحمصة"
+          },
+          {
+            "id": "dessert-fudge-florence",
+            "price": 80,
+            "name_ar": "فادج فلونس",
+            "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Signature Italian Florence fudge cake with dark chocolate layers",
+            "desc_ar": "فادج فلونس الإيطالي بطبقات الشوكولاتة الغنية",
+            "name_en": "Florence Fudge Cake"
+          },
+          {
+            "id": "dessert-red-velvet",
+            "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "ريد فيلفيت",
+            "price": 75,
+            "name_en": "Red Velvet Cake",
+            "desc_ar": "كيكة الريد فيلفيت الكلاسيكية مع كريمة الجبن الفاخرة",
+            "desc_en": "Classic crimson sponge cake layered with cream cheese frosting"
+          },
+          {
+            "name_ar": "ديسباسيتو",
+            "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Despacito Cake",
+            "desc_ar": "كيكة ديسباسيتو البرازيلية الغارقة في صوص الشوكولاتة",
+            "price": 100,
+            "id": "dessert-despacito",
+            "desc_en": "Moist chocolate sponge soaked in chocolate milk and mousse"
+          },
+          {
+            "price": 85,
+            "name_en": "Mini Rocher",
+            "desc_en": "Mini Ferrero Rocher dessert cup with hazelnut crunch",
+            "desc_ar": "حلوى ميني روشيه مع كرانشي البندق والشوكولاتة",
+            "id": "dessert-mini-rocher",
+            "name_ar": "ميني روشيه",
+            "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "name_ar": "ميني ريد فيلفت",
+            "price": 80,
+            "id": "dessert-mini-red-velvet",
+            "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Mini Red Velvet",
+            "desc_en": "Individual red velvet cups with creamy frosting",
+            "desc_ar": "أكواب ميني ريد فيلفت بطبقات الكريمة المخملية"
+          },
+          {
+            "id": "dessert-mini-florence",
+            "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "ميني فلونس",
+            "price": 85,
+            "desc_ar": "حلوى ميني فلونس الفاخرة",
+            "desc_en": "Delicate Italian chocolate confection",
+            "name_en": "Mini Florence"
+          },
+          {
+            "name_ar": "تيراميسو",
+            "id": "dessert-tiramisu",
+            "price": 80,
+            "desc_en": "Espresso-dipped ladyfingers layered with mascarpone cream and cocoa",
+            "desc_ar": "تيراميسو إيطالي أصيل بطبقات كريمة الماسكاربوني والإسبريسو",
+            "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Italian Tiramisu"
+          }
+        ],
+        "name_ar": "الحلويات",
+        "id": "desserts"
+      },
+      {
+        "name_ar": "الوافل",
+        "desc_en": "Golden crispy Belgian waffles with decadent toppings and chocolates",
+        "id": "waffles",
+        "desc_ar": "وافل بلجيكي مقرمش مع أشهى الصوصات العالمية",
+        "items": [
+          {
+            "id": "waffle-nutella",
+            "name_ar": "وافل نوتيلا",
+            "price": 80,
+            "desc_ar": "وافل مغطى بشوكولاتة النوتيلا الغنية",
+            "desc_en": "Belgian waffle smothered with authentic Nutella hazelnut spread",
+            "name_en": "Nutella Waffle",
+            "image": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "desc_ar": "وافل بالشوكولاتة البيضاء البلجيكية",
+            "desc_en": "Crispy waffle topped with creamy Belgian white chocolate",
+            "image": "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=800&q=80",
+            "id": "waffle-white",
+            "name_en": "White Chocolate Waffle",
+            "name_ar": "وافل وايت",
+            "price": 80
+          },
+          {
+            "name_ar": "وافل كراميل",
+            "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Caramel Waffle",
+            "desc_ar": "وافل مع صوص الكراميل اللذيذ",
+            "price": 80,
+            "desc_en": "Warm waffle drizzled with salted butter caramel sauce",
+            "id": "waffle-caramel"
+          },
+          {
+            "id": "waffle-honey",
+            "name_ar": "وافل عسل",
+            "price": 70,
+            "desc_en": "Golden waffle served with pure mountain honey",
+            "desc_ar": "وافل مع عسل النحل الطبيعي الصافي",
+            "image": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Natural Honey Waffle"
+          },
+          {
+            "name_ar": "وافل عسل وموز",
+            "image": "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Honey & Banana Waffle",
+            "price": 80,
+            "desc_ar": "وافل مع شرائح الموز الطازج وعسل النحل",
+            "id": "waffle-honey-banana",
+            "desc_en": "Crisp waffle paired with fresh sliced banana and honey"
+          },
+          {
+            "price": 80,
+            "name_ar": "وافل لوتس",
+            "desc_en": "Waffle topped with Lotus Biscoff spread and crushed cookies",
+            "desc_ar": "وافل مغطى بزبدة وبسكويت اللوتس المقرمش",
+            "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80",
+            "id": "waffle-lotus",
+            "name_en": "Lotus Biscoff Waffle"
+          },
+          {
+            "name_ar": "وافل نوتيلا وأوريو",
+            "image": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Nutella & Oreo Waffle",
+            "id": "waffle-nutella-oreo",
+            "desc_ar": "وافل بالنوتيلا مع قطع بسكويت الأوريو",
+            "desc_en": "Nutella spread layered with crushed Oreo biscuits",
+            "price": 85
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "وافل دارك",
+            "price": 70,
+            "desc_ar": "وافل مغطى بالشوكولاتة الداكنة الفاخرة",
+            "id": "waffle-dark",
+            "desc_en": "Decadent dark cocoa chocolate glaze on warm waffle",
+            "name_en": "Dark Chocolate Waffle"
+          },
+          {
+            "price": 90,
+            "name_ar": "وافل كندر",
+            "desc_en": "Waffle drenched in creamy Kinder chocolate cream",
+            "desc_ar": "وافل بصوص شوكولاتة كندر الأصلية",
+            "id": "waffle-kinder",
+            "name_en": "Kinder Chocolate Waffle",
+            "image": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "name_ar": "وافل بيستاشيو",
+            "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Pistachio Waffle",
+            "id": "waffle-pistachio",
+            "desc_ar": "وافل غني بكريمة الفستق الحلبي والمكسرات",
+            "desc_en": "Premium Sicilian pistachio cream and roasted pistachios",
+            "price": 100
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "وافل لاجونا",
+            "isLagunaSpecial": true,
+            "name_en": "Signature Laguna Waffle",
+            "price": 110,
+            "id": "waffle-laguna",
+            "desc_ar": "وافل لاجونا الخاص بتشكيلة شوكولاتة ثلاثية وفواكه وآيس كريم",
+            "desc_en": "Chef special combination of tri-chocolate, fresh berries and ice cream"
+          },
+          {
+            "price": 100,
+            "name_en": "Four Seasons Waffle",
+            "desc_en": "Four distinct quarters: Nutella, White chocolate, Lotus, and Pistachio",
+            "desc_ar": "أربعة أقسام بأشهى الصوصات: نوتيلا، وايت، لوتس، وبيستاشيو",
+            "name_ar": "وافل فور سيزونز",
+            "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80",
+            "id": "waffle-four-seasons"
+          }
+        ],
+        "name_en": "Waffles"
+      },
+      {
+        "id": "waffle-bubbles",
+        "name_en": "Bubble Waffles",
+        "desc_en": "Crispy outside, fluffy inside Hong Kong style bubble waffles",
+        "desc_ar": "وافل الفقاعات الهش المحشو بالشوكولاتة والآيس كريم والفواكه",
+        "name_ar": "وافل بابل",
+        "items": [
+          {
+            "name_en": "Nutella Bubble Waffle",
+            "desc_en": "Warm bubble waffle folded with generous Nutella drizzle",
+            "id": "bubble-nutella",
+            "price": 80,
+            "desc_ar": "بابل وافل مع صوص النوتيلا",
+            "name_ar": "بابل نوتيلا",
+            "image": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "name_en": "White Chocolate Bubble",
+            "desc_en": "Bubble waffle layered with smooth white chocolate",
+            "desc_ar": "بابل وافل بالشوكولاتة البيضاء",
+            "price": 80,
+            "name_ar": "بابل وايت",
+            "id": "bubble-white",
+            "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "name_ar": "بابل دارك",
+            "price": 80,
+            "id": "bubble-dark",
+            "name_en": "Dark Chocolate Bubble",
+            "desc_ar": "بابل وافل بالشوكولاتة الداكنة",
+            "image": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Deep dark chocolate coating on crisp bubble waffle"
+          },
+          {
+            "name_en": "Ice Cream Bubble Waffle",
+            "desc_ar": "بابل وافل محشو ببول آيس كريم منعش",
+            "desc_en": "Warm bubble cone holding creamy vanilla ice cream scoops",
+            "image": "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "بابل آيس كريم",
+            "price": 80,
+            "id": "bubble-ice-cream"
+          },
+          {
+            "name_ar": "بابل نوتيلا ومكسرات (آيس كريم)",
+            "price": 90,
+            "name_en": "Nutella, Nuts & Ice Cream Bubble",
+            "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Nutella, roasted nuts, and creamy ice cream loaded in bubble waffle",
+            "desc_ar": "بابل وافل مع نوتيلا ومكسرات وبولة آيس كريم",
+            "id": "bubble-nutella-nuts-ice"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=800&q=80",
+            "id": "bubble-caramel",
+            "name_ar": "بابل كراميل",
+            "price": 80,
+            "desc_ar": "بابل وافل مع صوص الكراميل الناعم",
+            "desc_en": "Golden caramel sauce drizzled over bubble waffle",
+            "name_en": "Caramel Bubble Waffle"
+          },
+          {
+            "desc_en": "Strawberries, kiwi, and banana slices on warm bubble waffle",
+            "desc_ar": "بابل وافل محشو بتشكيلة فواكه طازجة",
+            "price": 90,
+            "name_en": "Fresh Fruits Bubble Waffle",
+            "id": "bubble-fruits",
+            "name_ar": "بابل فواكه",
+            "image": "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "name_en": "Banana & Honey Bubble",
+            "id": "bubble-banana-honey",
+            "desc_ar": "بابل وافل مع شرائح الموز وعسل النحل",
+            "image": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Sliced bananas with natural honey on crispy bubbles",
+            "name_ar": "بابل موز وعسل",
+            "price": 80
+          },
+          {
+            "price": 90,
+            "name_en": "Banana & Nutella Bubble",
+            "desc_en": "The classic pair of sweet bananas and Nutella in bubble waffle",
+            "desc_ar": "بابل وافل مع موز وشوكولاتة نوتيلا",
+            "name_ar": "بابل موز ونوتيلا",
+            "id": "bubble-banana-nutella",
+            "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?auto=format&fit=crop&w=800&q=80",
+            "isLagunaSpecial": true,
+            "name_ar": "بابل لاجونا",
+            "desc_ar": "بابل لاجونا الفاخر مع آيس كريم ومكسرات وصوصات مميزة",
+            "price": 110,
+            "desc_en": "Lavish bubble waffle stuffed with ice cream, fruits, Belgian chocolate and nuts",
+            "name_en": "Signature Laguna Bubble Waffle",
+            "id": "bubble-laguna"
+          }
+        ]
+      },
+      {
+        "id": "pancakes",
+        "desc_en": "Fluffy golden mini pancakes stacked with gourmet syrups",
+        "desc_ar": "ميني بان كيك طازج مع تشكيلة صوصات شهية",
+        "name_en": "Pancakes",
+        "items": [
+          {
+            "price": 60,
+            "name_ar": "بان كيك (8 قطع)",
+            "id": "pancake-8",
+            "desc_en": "8 freshly made fluffy mini pancakes with chocolate or syrup",
+            "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "8 قطع ميني بان كيك ذهبي مع صوص الشوكولاتة",
+            "name_en": "Pancakes (8 Pieces)"
+          },
+          {
+            "price": 85,
+            "name_ar": "بان كيك (12 قطعة)",
+            "id": "pancake-12",
+            "name_en": "Pancakes (12 Pieces)",
+            "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "12 fluffy mini pancakes served with your choice of chocolate or honey",
+            "desc_ar": "12 قطعة ميني بان كيك مع صوصات منوعة"
+          },
+          {
+            "isLagunaSpecial": true,
+            "image": "https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "بان كيك لاجونا",
+            "desc_ar": "بان كيك لاجونا الملكي مع فواكه طازجة وصوصات فاخرة وبولة آيس كريم",
+            "price": 100,
+            "id": "pancake-laguna",
+            "desc_en": "Tower of pancakes with fresh berries, lotus, chocolate and ice cream scoop",
+            "name_en": "Signature Laguna Pancakes"
+          }
+        ],
+        "name_ar": "بان كيك"
+      }
+    ]
+  },
+  {
+    "id": "drinks",
+    "subcategories": [
+      {
+        "name_en": "Fresh Juices",
+        "desc_en": "Pure, cold-pressed 100% natural fruit juices made to order",
+        "desc_ar": "عصائر فواكه طبيعية 100% طازجة بدون إضافات",
+        "items": [
+          {
+            "name_en": "Fresh Mango",
+            "desc_en": "Pure Egyptian sweet mango pulp",
+            "price": 70,
+            "desc_ar": "عصير مانجو فريش طبيعي",
+            "id": "fresh-mango",
+            "name_ar": "مانجو",
+            "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Fresh Strawberry",
+            "id": "fresh-strawberry",
+            "desc_ar": "عصير فراولة طبيعي منعش",
+            "desc_en": "Freshly squeezed ripe strawberries",
+            "name_ar": "فراولة",
+            "price": 65
+          },
+          {
+            "name_ar": "فراولة (حليب)",
+            "image": "https://images.unsplash.com/photo-1541658016709-82535e94bc69?auto=format&fit=crop&w=800&q=80",
+            "price": 75,
+            "name_en": "Strawberry with Milk",
+            "id": "fresh-strawberry-milk",
+            "desc_ar": "فراولة بالحليب الطبيعي",
+            "desc_en": "Blended fresh strawberries with whole milk"
+          },
+          {
+            "name_en": "Fresh Orange",
+            "image": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "برتقال بلدي معصور طازجاً",
+            "desc_en": "Pure freshly squeezed orange juice",
+            "name_ar": "برتقال",
+            "price": 60,
+            "id": "fresh-orange"
+          },
+          {
+            "name_ar": "جوافة",
+            "id": "fresh-guava",
+            "price": 60,
+            "name_en": "Fresh Guava",
+            "image": "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Sweet fragrant white guava",
+            "desc_ar": "عصير جوافة فريش"
+          },
+          {
+            "price": 70,
+            "name_ar": "جوافة (حليب)",
+            "id": "fresh-guava-milk",
+            "desc_en": "Creamy guava blended with milk",
+            "desc_ar": "جوافة بالحليب",
+            "image": "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Guava with Milk"
+          },
+          {
+            "id": "fresh-banana-milk",
+            "name_ar": "موز (حليب)",
+            "image": "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Banana with Milk",
+            "desc_ar": "موز فريش بالحليب",
+            "price": 70,
+            "desc_en": "Fresh bananas whipped with cold milk and honey touch"
+          },
+          {
+            "name_en": "Fresh Lemonade",
+            "desc_ar": "ليمون معصور طازج",
+            "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Zesty freshly pressed lemon juice",
+            "name_ar": "ليمون",
+            "id": "fresh-lemon",
+            "price": 45
+          },
+          {
+            "name_ar": "ليمون نعناع",
+            "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80",
+            "id": "fresh-lemon-mint",
+            "name_en": "Lemon Mint",
+            "desc_ar": "ليمون بالنعناع الأخضر المنعش",
+            "price": 55,
+            "desc_en": "Classic crushed lemon with fresh garden mint leaves"
+          },
+          {
+            "desc_ar": "ليمون فرنساوي كريمي مميز",
+            "desc_en": "Creamy whipped French lemonade",
+            "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80",
+            "name_en": "French Lemonade",
+            "price": 60,
+            "id": "fresh-lemon-french",
+            "name_ar": "ليمون فرنساوي"
+          },
+          {
+            "name_ar": "كيوي",
+            "image": "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Fresh Kiwi",
+            "desc_ar": "عصير كيوي طبيعي",
+            "price": 80,
+            "id": "fresh-kiwi",
+            "desc_en": "Tart and sweet fresh kiwi purée"
+          },
+          {
+            "name_en": "Kiwi with Milk",
+            "image": "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80",
+            "id": "fresh-kiwi-milk",
+            "desc_ar": "كيوي بالحليب",
+            "desc_en": "Smooth kiwi blended with milk",
+            "name_ar": "كيوي (حليب)",
+            "price": 85
+          },
+          {
+            "id": "fresh-avocado",
+            "name_en": "Fresh Avocado",
+            "desc_en": "Nutrient-rich creamy Hass avocado with honey",
+            "price": 80,
+            "desc_ar": "عصير أفوكادو فريش بالعسل",
+            "name_ar": "أفوكادو",
+            "image": "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "name_en": "Dates with Milk",
+            "image": "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Sweet dates blended with rich milk",
+            "desc_ar": "بلح بالحليب الطبيعي المغذي",
+            "name_ar": "بلح",
+            "id": "fresh-dates",
+            "price": 60
+          },
+          {
+            "name_ar": "رمان",
+            "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Fresh Pomegranate",
+            "desc_ar": "عصير رمان فريش",
+            "price": 60,
+            "id": "fresh-pomegranate",
+            "desc_en": "Pure Ruby red pomegranate juice"
+          },
+          {
+            "id": "fresh-pomegranate-milk",
+            "price": 65,
+            "name_en": "Pomegranate with Milk",
+            "desc_en": "Pomegranate blended with milk",
+            "desc_ar": "رمان بالحليب",
+            "name_ar": "رمان (حليب)",
+            "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=800&q=80"
+          }
+        ],
+        "name_ar": "فريش",
+        "id": "fresh-juices"
+      },
+      {
+        "items": [
+          {
+            "name_ar": "هاواي",
+            "price": 75,
+            "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80",
+            "id": "cocktail-hawaii",
+            "name_en": "Hawaii Cocktail",
+            "desc_en": "Pineapple, orange, and sweet peach",
+            "desc_ar": "أناناس - برتقال - خوخ"
+          },
+          {
+            "price": 85,
+            "name_en": "Florida Cocktail",
+            "desc_ar": "جوافة - مانجو - فراولة",
+            "desc_en": "Guava, mango, and fresh strawberry",
+            "name_ar": "فلوريدا",
+            "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80",
+            "id": "cocktail-florida"
+          },
+          {
+            "price": 85,
+            "id": "cocktail-larose",
+            "name_ar": "لاروز",
+            "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "فراولة - كيوي - مانجو",
+            "desc_en": "Strawberry, kiwi, and sweet mango",
+            "name_en": "La Rose Cocktail"
+          },
+          {
+            "id": "cocktail-tamr",
+            "name_en": "Tamr Power Cocktail",
+            "desc_en": "Dates, kiwi, and mango energy blend",
+            "desc_ar": "تمر - كيوي - مانجو",
+            "price": 80,
+            "name_ar": "تمر",
+            "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "price": 90,
+            "name_ar": "وايت أوشن",
+            "id": "cocktail-white-ocean",
+            "name_en": "White Ocean",
+            "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "موز - آيس كريم - مكسرات - كريمة",
+            "desc_en": "Banana, vanilla ice cream, mixed nuts, and whipped cream"
+          },
+          {
+            "name_en": "Da Bomba Cocktail",
+            "desc_en": "Strawberry, kiwi, banana, and fresh orange",
+            "price": 85,
+            "desc_ar": "فراولة - كيوي - موز - برتقال",
+            "name_ar": "دا بومبا",
+            "id": "cocktail-da-bomba",
+            "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "price": 80,
+            "name_en": "Delight Punch",
+            "desc_en": "Orange, guava, lemon, and natural honey",
+            "desc_ar": "برتقال - جوافة - ليمون - عسل",
+            "name_ar": "دلايت بانش",
+            "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80",
+            "id": "cocktail-delight-punch"
+          },
+          {
+            "name_ar": "باور بوست",
+            "isLagunaSpecial": true,
+            "price": 100,
+            "id": "cocktail-power-boost",
+            "name_en": "Power Boost",
+            "desc_ar": "أفوكادو - مكسرات - كريمة - عسل",
+            "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Creamy avocado, crunchy nuts, whipped cream, and pure honey"
+          },
+          {
+            "name_en": "Tsunami Cocktail",
+            "desc_ar": "مانجو - باشون - أناناس",
+            "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Mango, passion fruit, and tropical pineapple",
+            "id": "cocktail-tsunami",
+            "name_ar": "تسونامي",
+            "price": 80
+          }
+        ],
+        "name_ar": "كوكتيل فريش",
+        "id": "fresh-cocktails",
+        "name_en": "Fresh Cocktails",
+        "desc_ar": "خلطات كوكتيل فواكه طبيعية منعشة ومغذية",
+        "desc_en": "Artisanal handcrafted fruit cocktail blends"
+      },
+      {
+        "name_en": "Hot Drinks",
+        "desc_ar": "شاي ومشروبات ساخنة كلاسيكية محضرة بأعلى جودة",
+        "items": [
+          {
+            "name_ar": "شاي سادة",
+            "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Plain Black Tea",
+            "id": "hot-tea-plain",
+            "desc_ar": "شاي سيلاني أسود فاخر",
+            "price": 20,
+            "desc_en": "Finest Ceylon black tea"
+          },
+          {
+            "name_ar": "شاي فواكه",
+            "id": "hot-tea-fruits",
+            "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "شاي بنكهة الفواكه الطبيعية",
+            "desc_en": "Aromatic herbal fruit tea blend",
+            "price": 30,
+            "name_en": "Fruit Infused Tea"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "شاي بالحليب",
+            "desc_ar": "شاي أحمر بالحليب",
+            "price": 45,
+            "desc_en": "Black tea with steamed milk",
+            "id": "hot-tea-milk",
+            "name_en": "Tea with Milk"
+          },
+          {
+            "price": 50,
+            "id": "hot-tea-karak",
+            "name_ar": "شاي كرك",
+            "desc_ar": "شاي كرك بالحليب والهيل والزعفران",
+            "desc_en": "Slow-simmered tea with evaporated milk, cardamom and spices",
+            "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Karak Spiced Chai"
+          },
+          {
+            "id": "hot-tea-complete",
+            "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "شاي كومبليت",
+            "price": 60,
+            "name_en": "Complete Tea",
+            "desc_ar": "شاي كومبليت بالخلطة الغنية",
+            "desc_en": "Special full-flavor spiced tea pot"
+          },
+          {
+            "price": 25,
+            "name_ar": "شاي أخضر",
+            "name_en": "Green Tea",
+            "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Antioxidant-rich whole leaf green tea",
+            "desc_ar": "شاي أخضر نقي بالنعناع",
+            "id": "hot-tea-green"
+          },
+          {
+            "id": "hot-sahlab-plain",
+            "price": 45,
+            "name_ar": "سحلب سادة",
+            "desc_en": "Traditional Middle Eastern orchid milk drink with cinnamon",
+            "desc_ar": "سحلب ساخن كريمي مع رشة قرفة",
+            "name_en": "Plain Sahlab",
+            "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "hot-sahlab-nuts",
+            "desc_ar": "سحلب غني بالمكسرات المحمصة والزبيب",
+            "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Creamy sahlab topped with roasted hazelnuts and almonds",
+            "name_en": "Sahlab with Nuts",
+            "price": 55,
+            "name_ar": "سحلب مكسرات"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80",
+            "isLagunaSpecial": true,
+            "name_ar": "سحلب لاجونا",
+            "desc_ar": "سحلب لاجونا الخاص بالمستكة والمكسرات الفاخرة",
+            "desc_en": "Laguna luxury sahlab with premium pistachios, nuts, and mastic",
+            "id": "hot-sahlab-laguna",
+            "price": 65,
+            "name_en": "Signature Laguna Sahlab"
+          },
+          {
+            "price": 50,
+            "name_ar": "هوت شوكليت",
+            "id": "hot-chocolate",
+            "name_en": "Hot Chocolate",
+            "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Steamed whole milk with Belgian cocoa",
+            "desc_ar": "شوكولاتة ساخنة كريمية فاخرة"
+          },
+          {
+            "name_ar": "هوت شوكليت (مارشميلو)",
+            "id": "hot-chocolate-marshmallow",
+            "price": 60,
+            "desc_en": "Hot chocolate topped with fluffy marshmallows",
+            "desc_ar": "هوت شوكليت مع قطع المارشميلو الذائبة",
+            "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Hot Chocolate with Marshmallow"
+          },
+          {
+            "id": "hot-oreo",
+            "name_ar": "هوت أوريو",
+            "price": 55,
+            "desc_en": "Warm chocolate milk blended with Oreo cookies",
+            "desc_ar": "مشروب أوريو ساخن مع الكريمة",
+            "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Hot Oreo"
+          },
+          {
+            "id": "hot-lotus",
+            "name_ar": "هوت لوتس",
+            "price": 55,
+            "name_en": "Hot Lotus",
+            "desc_ar": "مشروب زبدة اللوتس الساخن مع البسكويت",
+            "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Steamed spiced Lotus Biscoff speculoos drink"
+          },
+          {
+            "desc_en": "Velvety warm Nutella chocolate milk",
+            "desc_ar": "مشروب النوتيلا الإيطالي الساخن",
+            "name_en": "Hot Nutella",
+            "price": 50,
+            "id": "hot-nutella",
+            "name_ar": "هوت نوتيلا",
+            "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "hot-laguna",
+            "isLagunaSpecial": true,
+            "name_ar": "هوت لاجونا",
+            "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Exclusive Laguna cocoa recipe with Belgian chocolate blend",
+            "desc_ar": "مشروب هوت لاجونا الخاص بتوليفة الشوكولاتة والكراميل",
+            "price": 60,
+            "name_en": "Signature Hot Laguna"
+          }
+        ],
+        "desc_en": "Traditional and comforting warm teas and hot beverages",
+        "id": "hot-drinks",
+        "name_ar": "مشروبات ساخنة"
+      },
+      {
+        "desc_ar": "قهوة مختصة محضرة من أجود حبوب البن المحمصة",
+        "items": [
+          {
+            "name_ar": "قهوة تركي",
+            "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+            "id": "coffee-turkish",
+            "price": 30,
+            "name_en": "Turkish Coffee",
+            "desc_ar": "قهوة تركي على أصولها مع وش كثيف",
+            "desc_en": "Finely ground Arabica simmered with authentic foam"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "قهوة فرنسي",
+            "id": "coffee-french",
+            "desc_ar": "قهوة فرنساوي بالحليب الغني",
+            "desc_en": "Smooth Turkish coffee with fresh steamed milk",
+            "name_en": "French Coffee",
+            "price": 45
+          },
+          {
+            "price": 50,
+            "name_en": "Hazelnut Coffee",
+            "desc_en": "Aromatic Turkish coffee infused with roasted hazelnut",
+            "desc_ar": "قهوة تركي بنكهة البندق المحمص",
+            "name_ar": "قهوة بندق",
+            "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+            "id": "coffee-hazelnut"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+            "id": "coffee-nutella",
+            "name_ar": "قهوة نوتيلا",
+            "desc_ar": "قهوة بنكهة شوكولاتة النوتيلا",
+            "desc_en": "Turkish coffee swirled with melted Nutella",
+            "price": 55,
+            "name_en": "Nutella Coffee"
+          },
+          {
+            "name_ar": "إسبريسو سنجل",
+            "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Single Espresso",
+            "id": "coffee-espresso-single",
+            "desc_ar": "شوت إسبريسو نقي مركز مع كريما ذهبية",
+            "price": 40,
+            "desc_en": "Rich concentrated single shot with thick golden crema"
+          },
+          {
+            "id": "coffee-espresso-double",
+            "name_en": "Double Espresso",
+            "desc_ar": "دبل شوت إسبريسو قوي المذاق",
+            "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Double shot of premium roasted espresso",
+            "name_ar": "إسبريسو دبل",
+            "price": 60
+          },
+          {
+            "name_ar": "ماكياتو",
+            "price": 50,
+            "id": "coffee-macchiato",
+            "name_en": "Macchiato",
+            "desc_en": "Espresso stained with a dollop of velvety milk foam",
+            "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "إسبريسو مع لمسة رغوة حليب ناعمة"
+          },
+          {
+            "desc_ar": "ماكياتو بصوص الكراميل والفانيليا",
+            "desc_en": "Layered espresso, steamed milk, and vanilla caramel drizzle",
+            "name_en": "Caramel Macchiato",
+            "id": "coffee-macchiato-caramel",
+            "price": 60,
+            "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "ماكياتو كراميل"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+            "id": "coffee-cortado",
+            "name_ar": "كورتادو",
+            "desc_ar": "كورتادو متوازن بنسب متساوية من الإسبريسو والحليب",
+            "desc_en": "Equal parts espresso and lightly steamed milk",
+            "name_en": "Cortado",
+            "price": 50
+          },
+          {
+            "name_ar": "كابتشينو",
+            "price": 60,
+            "desc_en": "Classic equal thirds of espresso, steamed milk, and dense foam",
+            "desc_ar": "كابتشينو إيطالي كلاسيكي برغوة غنية وبودرة كاكاو",
+            "id": "coffee-cappuccino",
+            "name_en": "Cappuccino",
+            "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "desc_en": "Espresso with silky microfoam milk",
+            "desc_ar": "لاتيه ناعم بحليب مبخر بعناية ورسمة فنية",
+            "price": 55,
+            "name_en": "Caffè Latte",
+            "id": "coffee-latte",
+            "name_ar": "لاتيه",
+            "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "price": 65,
+            "name_ar": "لاتيه إسباني",
+            "id": "coffee-spanish-latte",
+            "desc_en": "Espresso sweetened with creamy condensed milk",
+            "desc_ar": "لاتيه إسباني ساخن بالحليب المكثف المحلى",
+            "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Spanish Latte"
+          },
+          {
+            "name_en": "Affogato Avocado (Espresso & Ice Cream)",
+            "price": 60,
+            "desc_ar": "بولة آيس كريم فانيليا غارقة في شوت إسبريسو ساخن",
+            "desc_en": "Scoop of ice cream drowned in hot freshly pulled espresso",
+            "id": "coffee-affogato",
+            "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "أفوكادو (إسبريسو - آيس كريم)"
+          },
+          {
+            "id": "coffee-flavor-shot",
+            "name_ar": "إضافة نكهة",
+            "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Extra Flavor Shot",
+            "desc_ar": "إضافة سيرب نكهة فانيليا أو كراميل أو بندق",
+            "desc_en": "Add Vanilla, Caramel, Hazelnut or Toffee syrup",
+            "price": 20
+          }
+        ],
+        "desc_en": "Specialty espresso drinks and traditional brews",
+        "name_en": "Coffee",
+        "id": "coffee",
+        "name_ar": "قهوة"
+      },
+      {
+        "name_ar": "ماتشا ساخنة",
+        "id": "hot-matcha",
+        "items": [
+          {
+            "price": 70,
+            "name_ar": "ماتشا لاتيه",
+            "desc_en": "Pure ceremonial matcha whisked with steamed milk",
+            "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "ماتشا يابانية نقية مع حليب مبخر ناعم",
+            "name_en": "Matcha Latte",
+            "id": "matcha-hot-latte"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "ماتشا لاتيه بنكهة الفانيليا الطبيعية",
+            "id": "matcha-hot-vanilla",
+            "desc_en": "Matcha latte infused with aromatic Madagascar vanilla",
+            "name_en": "Vanilla Matcha Latte",
+            "price": 80,
+            "name_ar": "ماتشا لاتيه فانيليا"
+          },
+          {
+            "desc_ar": "ماتشا إسباني ساخنة مع الحليب المكثف المحلى",
+            "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Whisked matcha sweetened with condensed milk",
+            "name_en": "Spanish Hot Matcha",
+            "id": "matcha-hot-spanish",
+            "price": 85,
+            "name_ar": "ماتشا إسباني"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "ماتشا بحليب جوز الهند الطبيعي الكريمي",
+            "desc_en": "Earthy matcha blended with rich creamy coconut milk",
+            "name_en": "Coconut Milk Matcha",
+            "price": 90,
+            "id": "matcha-hot-coconut",
+            "name_ar": "ماتشا جوز هند (حليب)"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Caramel Matcha Latte",
+            "id": "matcha-hot-caramel",
+            "desc_ar": "ماتشا لاتيه بصوص الكراميل الذهبي",
+            "desc_en": "Matcha latte balanced with golden caramel drizzle",
+            "name_ar": "ماتشا لاتيه كراميل",
+            "price": 85
+          }
+        ],
+        "name_en": "Hot Matcha",
+        "desc_en": "Ceremonial grade Japanese green tea matcha whisked to perfection",
+        "desc_ar": "ماتشا يابانية عضوية فاخرة مخفوقة بالحليب الساخن"
+      },
+      {
+        "name_ar": "ماتشا باردة",
+        "id": "iced-matcha",
+        "name_en": "Iced Matcha",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "آيس ماتشا كلاسيك",
+            "desc_ar": "ماتشا كلاسيكية مخفوقة على الثلج",
+            "price": 70,
+            "id": "matcha-ice-classic",
+            "desc_en": "Shaken ceremonial matcha poured over crystal ice",
+            "name_en": "Classic Iced Matcha"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80",
+            "id": "matcha-ice-latte",
+            "name_ar": "آيس ماتشا لاتيه",
+            "price": 75,
+            "desc_ar": "آيس ماتشا لاتيه بطبقات الحليب والثلج",
+            "desc_en": "Layered matcha over cold milk and ice cubes",
+            "name_en": "Iced Matcha Latte"
+          },
+          {
+            "desc_ar": "آيس ماتشا بنكهة الفانيليا",
+            "desc_en": "Iced matcha latte with vanilla syrup",
+            "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Vanilla Iced Matcha",
+            "id": "matcha-ice-vanilla",
+            "name_ar": "آيس ماتشا فانيليا",
+            "price": 75
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Coconut Iced Matcha",
+            "id": "matcha-ice-coconut",
+            "desc_ar": "آيس ماتشا بحليب جوز الهند المنعش",
+            "desc_en": "Tropical iced matcha with silky coconut milk",
+            "name_ar": "آيس ماتشا جوز هند",
+            "price": 80
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "آيس ماتشا إسباني",
+            "desc_ar": "آيس ماتشا إسباني بالحليب المكثف المحلى",
+            "id": "matcha-ice-spanish",
+            "desc_en": "Sweet Spanish style iced matcha latte",
+            "name_en": "Spanish Iced Matcha",
+            "price": 85
+          },
+          {
+            "name_ar": "آيس ماتشا مانجو",
+            "price": 80,
+            "desc_en": "Sweet mango purée layered under cold matcha",
+            "desc_ar": "آيس ماتشا مع بيوريه المانجو الطبيعي",
+            "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Mango Iced Matcha",
+            "id": "matcha-ice-mango"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "آيس ماتشا فراولة",
+            "desc_en": "Fresh strawberry compote layered with cold milk and matcha",
+            "desc_ar": "آيس ماتشا مع صوص الفراولة الطازجة",
+            "price": 80,
+            "name_en": "Strawberry Iced Matcha",
+            "id": "matcha-ice-strawberry"
+          },
+          {
+            "id": "matcha-ice-peach",
+            "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "آيس ماتشا خوخ",
+            "desc_ar": "آيس ماتشا بنكهة الخوخ المنعش",
+            "price": 80,
+            "desc_en": "Refreshing peach notes with crisp cold matcha",
+            "name_en": "Peach Iced Matcha"
+          },
+          {
+            "name_ar": "آيس ماتشا كراميل",
+            "price": 85,
+            "name_en": "Caramel Iced Matcha",
+            "desc_en": "Iced matcha latte with sweet caramel drizzle",
+            "desc_ar": "آيس ماتشا مع صوص الكراميل",
+            "id": "matcha-ice-caramel",
+            "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80"
+          }
+        ],
+        "desc_ar": "مشروبات ماتشا يابانية مثلجة ومنعشة بألذ النكهات",
+        "desc_en": "Refreshing iced ceremonial Japanese matcha beverages"
+      },
+      {
+        "name_en": "Yogurt",
+        "desc_ar": "زبادي طبيعي كريمي مع الفواكه والعسل والمكسرات",
+        "id": "yogurt",
+        "items": [
+          {
+            "name_ar": "زبادي سادة",
+            "image": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Plain Yogurt",
+            "id": "yogurt-plain",
+            "desc_en": "Fresh creamy natural yogurt",
+            "price": 70,
+            "desc_ar": "زبادي بلدي طازج سادة"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "زبادي عسل",
+            "desc_ar": "زبادي مع عسل النحل الصافي",
+            "price": 75,
+            "id": "yogurt-honey",
+            "desc_en": "Creamy yogurt with pure mountain honey",
+            "name_en": "Honey Yogurt"
+          },
+          {
+            "name_en": "Mango Yogurt",
+            "image": "https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "زبادي بقطع وصوص المانجو الفريش",
+            "desc_en": "Yogurt topped with diced mango and purée",
+            "price": 75,
+            "name_ar": "زبادي مانجو",
+            "id": "yogurt-mango"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "زبادي فراولة",
+            "id": "yogurt-strawberry",
+            "name_en": "Strawberry Yogurt",
+            "price": 75,
+            "desc_ar": "زبادي بالفراولة الطازجة",
+            "desc_en": "Fresh strawberries layered with cold yogurt"
+          },
+          {
+            "id": "yogurt-peach",
+            "name_ar": "زبادي خوخ",
+            "price": 75,
+            "image": "https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Peach Yogurt",
+            "desc_en": "Sweet peach slices with creamy yogurt",
+            "desc_ar": "زبادي بقطع الخوخ اللذيذة"
+          },
+          {
+            "name_ar": "زبادي باشون فروت",
+            "price": 75,
+            "name_en": "Passion Fruit Yogurt",
+            "id": "yogurt-passion-fruit",
+            "image": "https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Tart tropical passion fruit over yogurt",
+            "desc_ar": "زبادي بنكهة الباشون فروت الاستوائية"
+          },
+          {
+            "price": 80,
+            "name_ar": "زبادي ميكس بيري",
+            "id": "yogurt-mix-berry",
+            "desc_ar": "زبادي بالتوت البري المشكل",
+            "image": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Blueberries, raspberries and strawberries over yogurt",
+            "name_en": "Mixed Berry Yogurt"
+          },
+          {
+            "price": 75,
+            "name_ar": "زبادي بلوبيري",
+            "desc_en": "Sweet blueberries with probiotic yogurt",
+            "desc_ar": "زبادي مع حبات البلوبيري الغنية",
+            "name_en": "Blueberry Yogurt",
+            "image": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80",
+            "id": "yogurt-blueberry"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "زبادي (عسل - مكسرات)",
+            "desc_ar": "زبادي بالعسل والمكسرات المحمصة",
+            "price": 85,
+            "desc_en": "Roasted almonds and walnuts with honey on yogurt",
+            "id": "yogurt-honey-nuts",
+            "name_en": "Honey & Nuts Yogurt"
+          },
+          {
+            "name_ar": "زبادي إسبيشيال",
+            "price": 110,
+            "desc_en": "Fresh fruits, natural honey, roasted nuts and whipped cream",
+            "id": "yogurt-special",
+            "desc_ar": "فواكه - عسل - مكسرات - كريمة",
+            "image": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80",
+            "isLagunaSpecial": true,
+            "name_en": "Special Yogurt Parfait"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "زبادي لاجونا",
+            "id": "yogurt-laguna",
+            "desc_ar": "طبق زبادي لاجونا الخاص بتشكيلة الفواكه والعسل الفاخر",
+            "isLagunaSpecial": true,
+            "desc_en": "Chef special yogurt bowl loaded with exotic berries, honey and crunch",
+            "name_en": "Signature Laguna Yogurt",
+            "price": 90
+          }
+        ],
+        "desc_en": "Creamy probiotic yogurt parfaits and fruit bowls",
+        "name_ar": "زبادي"
+      },
+      {
+        "name_ar": "ميلك شيك",
+        "desc_en": "Thick creamy milkshakes whipped with premium ice cream",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1553787499-6f9133860278?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "فانيليا",
+            "desc_ar": "ميلك شيك فانيليا كلاسيك",
+            "price": 70,
+            "id": "shake-vanilla",
+            "desc_en": "Classic creamy Madagascar vanilla shake",
+            "name_en": "Vanilla Shake"
+          },
+          {
+            "price": 80,
+            "name_en": "Pistachio Shake",
+            "desc_en": "Authentic pistachio cream shake with nuts",
+            "desc_ar": "ميلك شيك الفستق الحلبي الفاخر",
+            "name_ar": "بيستاشيو",
+            "image": "https://images.unsplash.com/photo-1553787499-6f9133860278?auto=format&fit=crop&w=800&q=80",
+            "id": "shake-pistachio"
+          },
+          {
+            "name_ar": "شوكولاتة",
+            "price": 75,
+            "id": "shake-chocolate",
+            "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Chocolate Shake",
+            "desc_en": "Rich Belgian chocolate ice cream shake",
+            "desc_ar": "ميلك شيك شوكولاتة غني"
+          },
+          {
+            "name_en": "Caramel Shake",
+            "image": "https://images.unsplash.com/photo-1553787499-6f9133860278?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "ميلك شيك صوص الكراميل الناعم",
+            "desc_en": "Salted butter caramel milkshake",
+            "name_ar": "كراميل",
+            "price": 75,
+            "id": "shake-caramel"
+          },
+          {
+            "name_en": "Hazelnut Shake",
+            "desc_en": "Roasted hazelnut and vanilla cream",
+            "image": "https://images.unsplash.com/photo-1553787499-6f9133860278?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "ميلك شيك بنكهة البندق المحمص",
+            "id": "shake-hazelnut",
+            "name_ar": "بندق",
+            "price": 75
+          },
+          {
+            "name_en": "Oreo Shake",
+            "desc_ar": "ميلك شيك بسكويت الأوريو والكريمة",
+            "price": 85,
+            "desc_en": "Crushed Oreo cookies blended in thick shake",
+            "name_ar": "أوريو",
+            "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
+            "id": "shake-oreo"
+          },
+          {
+            "desc_ar": "ميلك شيك زبدة اللوتس الشهيرة",
+            "desc_en": "Lotus Biscoff cream and crunchy speculoos",
+            "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Lotus Shake",
+            "id": "shake-lotus",
+            "name_ar": "لوتس",
+            "price": 85
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "كندر",
+            "desc_ar": "ميلك شيك شوكولاتة كندر الأصلية",
+            "desc_en": "Smooth Kinder chocolate milkshake",
+            "id": "shake-kinder",
+            "price": 85,
+            "name_en": "Kinder Shake"
+          },
+          {
+            "name_ar": "هوهوز",
+            "price": 75,
+            "desc_en": "HoHos chocolate roll cake blended in shake",
+            "desc_ar": "ميلك شيك كيكة هوهوز بالشوكولاتة",
+            "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
+            "id": "shake-hohos",
+            "name_en": "HoHos Shake"
+          },
+          {
+            "price": 80,
+            "name_ar": "نوتيلا",
+            "id": "shake-nutella",
+            "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Nutella Shake",
+            "desc_en": "Generous spoonfuls of Nutella whipped in milkshake",
+            "desc_ar": "ميلك شيك شوكولاتة النوتيلا الغنية"
+          },
+          {
+            "desc_en": "Chocolate chip cookies blended with vanilla cream",
+            "desc_ar": "ميلك شيك كوكيز بالشوكولاتة تشيبس",
+            "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Cookies Shake",
+            "id": "shake-cookies",
+            "name_ar": "كوكيز",
+            "price": 80
+          },
+          {
+            "desc_en": "Tropical passion fruit and vanilla ice cream",
+            "desc_ar": "ميلك شيك باشون فروت منعش",
+            "price": 75,
+            "name_en": "Passion Fruit Shake",
+            "id": "shake-passion",
+            "name_ar": "باشون فروت",
+            "image": "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "price": 75,
+            "id": "shake-peach",
+            "name_en": "Peach Shake",
+            "desc_en": "Sweet peach blended with creamy milk",
+            "desc_ar": "ميلك شيك خوخ طبيعي ولذيذ",
+            "name_ar": "خوخ",
+            "image": "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "name_ar": "فراولة",
+            "id": "shake-strawberry",
+            "image": "https://images.unsplash.com/photo-1541658016709-82535e94bc69?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Strawberry Shake",
+            "desc_ar": "ميلك شيك فراولة طازجة وكريمة",
+            "price": 75,
+            "desc_en": "Fresh ripe strawberries with vanilla ice cream"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1541658016709-82535e94bc69?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "بلوبيري",
+            "id": "shake-blueberry",
+            "price": 75,
+            "name_en": "Blueberry Shake",
+            "desc_ar": "ميلك شيك بلوبيري مميز",
+            "desc_en": "Wild blueberries blended with ice cream"
+          },
+          {
+            "desc_ar": "ميلك شيك كيوي فريش",
+            "desc_en": "Zesty kiwi and sweet cream blend",
+            "id": "shake-kiwi",
+            "name_en": "Kiwi Shake",
+            "image": "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=800&q=80",
+            "price": 75,
+            "name_ar": "كيوي"
+          },
+          {
+            "name_ar": "مانجو",
+            "price": 75,
+            "desc_en": "Rich Alphonso mango pulp milkshake",
+            "desc_ar": "ميلك شيك مانجو كريمي استوائي",
+            "id": "shake-mango",
+            "image": "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Mango Shake"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1541658016709-82535e94bc69?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Mixed Berry Shake",
+            "desc_en": "Raspberry, strawberry and blueberry trio",
+            "desc_ar": "ميلك شيك توت مشكل غني",
+            "name_ar": "ميكس بيري",
+            "price": 80,
+            "id": "shake-mix-berry"
+          },
+          {
+            "desc_ar": "ميلك شيك أناناس مثلج",
+            "desc_en": "Golden pineapple blended with ice cream",
+            "image": "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=800&q=80",
+            "id": "shake-pineapple",
+            "name_en": "Pineapple Shake",
+            "name_ar": "أناناس",
+            "price": 70
+          },
+          {
+            "id": "shake-green-apple",
+            "name_en": "Green Apple Shake",
+            "price": 70,
+            "desc_en": "Crisp green apple and vanilla shake",
+            "desc_ar": "ميلك شيك تفاح أخضر منعش",
+            "name_ar": "تفاح أخضر",
+            "image": "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "shake-laguna",
+            "name_en": "Signature Laguna Shake",
+            "image": "https://images.unsplash.com/photo-1553787499-6f9133860278?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Laguna signature blend of premium chocolates, nuts, and waffle garnish",
+            "desc_ar": "ميلك شيك لاجونا الملكي بالمكسرات والصوصات الفاخرة",
+            "name_ar": "لاجونا",
+            "price": 110,
+            "isLagunaSpecial": true
+          }
+        ],
+        "desc_ar": "ميلك شيك كثيف كريمي محضر من أجود أنواع الآيس كريم",
+        "name_en": "Milkshake",
+        "id": "milkshake"
+      },
+      {
+        "desc_ar": "موهيتو الصودا المنعش مع شرائح الليمون والنعناع والثلج المجروش",
+        "items": [
+          {
+            "desc_en": "Fresh lime, soda, mint, crushed ice, lemon slices",
+            "desc_ar": "ليمون - صودا - نعناع - تلج - شرائح ليمون",
+            "price": 70,
+            "name_en": "Classic Lime Mojito",
+            "id": "mojito-classic",
+            "name_ar": "كلاسيك",
+            "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "price": 70,
+            "name_ar": "باشون",
+            "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "باشون - صودا - شرائح ليمون - تلج",
+            "id": "mojito-passion",
+            "desc_en": "Passion fruit purée, soda, lime slices, crushed ice",
+            "name_en": "Passion Fruit Mojito"
+          },
+          {
+            "id": "mojito-blueberry",
+            "name_en": "Blueberry Mojito",
+            "price": 75,
+            "desc_en": "Blueberry syrup, soda, fresh lime slices, crushed ice",
+            "desc_ar": "بلوبيري - صودا - شرائح ليمون - تلج",
+            "name_ar": "بلوبيري",
+            "image": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "name_en": "Mixed Berry Mojito",
+            "desc_ar": "ميكس بيري - صودا - شرائح ليمون - تلج",
+            "image": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Mixed forest berries, soda, lime, ice",
+            "id": "mojito-mix-berry",
+            "name_ar": "ميكس بيري",
+            "price": 75
+          },
+          {
+            "price": 70,
+            "name_ar": "خوخ",
+            "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80",
+            "id": "mojito-peach",
+            "desc_en": "Sweet peach syrup, soda, lemon slices",
+            "desc_ar": "خوخ - صودا - شرائح ليمون",
+            "name_en": "Peach Mojito"
+          },
+          {
+            "price": 75,
+            "desc_en": "Strawberry purée, soda, lime slices, crushed ice",
+            "id": "mojito-strawberry",
+            "desc_ar": "فراولة - صودا - شرائح ليمون - تلج",
+            "name_en": "Strawberry Mojito",
+            "image": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "فراولة"
+          },
+          {
+            "name_ar": "ريد بول موهيتو",
+            "price": 110,
+            "image": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Red Bull Mojito",
+            "id": "mojito-redbull",
+            "desc_en": "Energy Red Bull can, fresh mint, lemon",
+            "desc_ar": "ريد بول - نعناع - ليمون"
+          },
+          {
+            "price": 70,
+            "name_ar": "صن رايز",
+            "desc_en": "Orange, soda, lemon, and pomegranate grenadine",
+            "id": "mojito-sunrise",
+            "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "برتقال - صودا - ليمون - رمان",
+            "name_en": "Sunrise Mojito"
+          },
+          {
+            "desc_ar": "برتقال - صودا - ليمون - رمان",
+            "desc_en": "Citrus orange, sparkling soda, lemon, pomegranate",
+            "name_en": "Sunshine Mojito",
+            "price": 70,
+            "id": "mojito-sunshine",
+            "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "صن شاين"
+          },
+          {
+            "name_ar": "ريد بول بيري",
+            "image": "https://images.unsplash.com/photo-1536935338788-846bb9981813?auto=format&fit=crop&w=800&q=80",
+            "id": "mojito-redbull-berry",
+            "name_en": "Red Bull Berry",
+            "desc_en": "Red Bull energy with wild berries, lime slices, crushed ice",
+            "price": 100,
+            "desc_ar": "ريد بول - بيري - شرائح ليمون - تلج"
+          },
+          {
+            "price": 100,
+            "name_en": "Blue Sky",
+            "desc_en": "Espresso, Red Bull, sparkling soda, fresh mint",
+            "id": "mojito-blue-sky",
+            "desc_ar": "إسبريسو - ريد بول - صودا - نعناع",
+            "name_ar": "بلو سكاي",
+            "image": "https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "desc_en": "Fresh orange, espresso shot, sparkling soda, crushed ice",
+            "desc_ar": "برتقال - إسبريسو - صودا - تلج",
+            "name_en": "Signature Laguna Mojito",
+            "isLagunaSpecial": true,
+            "price": 110,
+            "id": "mojito-laguna",
+            "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "موهيتو لاجونا"
+          }
+        ],
+        "desc_en": "Sparkling sodas with fresh lime, mint leaves and crushed crystal ice",
+        "name_en": "Soda Mojito",
+        "id": "soda-mojito",
+        "name_ar": "موهيتو الصودا"
+      },
+      {
+        "id": "iced-tea",
+        "name_ar": "الشاي المثلج",
+        "desc_en": "Cold brewed chilled tea with fruit essences",
+        "items": [
+          {
+            "price": 50,
+            "id": "ice-tea-classic",
+            "name_ar": "آيس تي",
+            "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "شاي مثلج كلاسيكي مع شرائح الليمون",
+            "desc_en": "Traditional brewed black tea served over crystal ice",
+            "name_en": "Classic Iced Tea"
+          },
+          {
+            "desc_ar": "شاي مثلج بنكهة الخوخ اللذيذ",
+            "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Iced black tea infused with sweet summer peach",
+            "id": "ice-tea-peach",
+            "name_en": "Peach Iced Tea",
+            "price": 65,
+            "name_ar": "آيس تي خوخ"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "آيس تي باشون فروت",
+            "id": "ice-tea-passion",
+            "desc_ar": "شاي مثلج بنكهة الباشون فروت",
+            "desc_en": "Tropical passion fruit chilled tea",
+            "name_en": "Passion Fruit Iced Tea",
+            "price": 65
+          },
+          {
+            "name_en": "Strawberry Iced Tea",
+            "desc_ar": "شاي مثلج بنكهة الفراولة",
+            "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Ripe strawberry essence in cold tea",
+            "name_ar": "آيس تي فراولة",
+            "price": 65,
+            "id": "ice-tea-strawberry"
+          },
+          {
+            "name_en": "Mango Iced Tea",
+            "price": 65,
+            "desc_en": "Golden mango purée blended with chilled tea",
+            "id": "ice-tea-mango",
+            "desc_ar": "شاي مثلج بنكهة المانجو",
+            "name_ar": "آيس تي مانجو",
+            "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "id": "ice-tea-lemon-mint",
+            "name_ar": "آيس تي ليمون نعناع",
+            "price": 60,
+            "desc_en": "Crisp lemon and fresh garden mint in iced tea",
+            "desc_ar": "شاي مثلج بالليمون والنعناع المنعش",
+            "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Lemon Mint Iced Tea"
+          }
+        ],
+        "desc_ar": "شاي مثلج منعش بنكهات الفواكه الصيفية",
+        "name_en": "Iced Tea"
+      },
+      {
+        "desc_ar": "مشروبات قهوة مثلجة منعشة محضرة من أجود حبوب الإسبريسو",
+        "desc_en": "Chilled espresso drinks and cold brew specialties",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "آيس كوفي",
+            "desc_ar": "قهوة إسبريسو مثلجة منعشة",
+            "id": "ice-coffee-classic",
+            "desc_en": "Double espresso pulled over cold water and ice",
+            "name_en": "Classic Iced Coffee",
+            "price": 70
+          },
+          {
+            "name_ar": "آيس لاتيه",
+            "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "إسبريسو مع حليب بارد وثلج",
+            "desc_en": "Espresso with cold whole milk over ice",
+            "price": 70,
+            "name_en": "Iced Latte",
+            "id": "ice-latte"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "آيس إسبانيش لاتيه",
+            "id": "ice-spanish-latte",
+            "desc_ar": "آيس لاتيه إسباني بالحليب المكثف المحلى",
+            "price": 90,
+            "desc_en": "Sweet condensed milk, cold milk, and rich espresso over ice",
+            "name_en": "Iced Spanish Latte"
+          },
+          {
+            "name_ar": "آيس كراميل ماكياتو",
+            "price": 85,
+            "id": "ice-caramel-macchiato",
+            "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Iced Caramel Macchiato",
+            "desc_en": "Vanilla milk, espresso, and golden caramel sauce over ice",
+            "desc_ar": "آيس كراميل ماكياتو بطبقات الحليب والكراميل"
+          },
+          {
+            "desc_ar": "قهوة مثلجة بنكهة التوفي نات والمكسرات",
+            "desc_en": "Toffee nut syrup, cold espresso, and milk",
+            "name_en": "Iced Toffee Nut",
+            "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+            "id": "ice-toffee-nut",
+            "name_ar": "آيس تافي نات",
+            "price": 85
+          },
+          {
+            "id": "ice-mocha-dark",
+            "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "آيس موكا دارك",
+            "desc_ar": "آيس موكا بالشوكولاتة الداكنة",
+            "desc_en": "Dark chocolate sauce, cold espresso, and milk",
+            "name_en": "Iced Dark Mocha",
+            "price": 75
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
+            "id": "ice-lotus-coffee",
+            "name_ar": "آيس لوتس",
+            "desc_ar": "قهوة مثلجة بكريمة وبسكويت اللوتس",
+            "desc_en": "Lotus Biscoff cream, cold espresso, and milk",
+            "name_en": "Iced Lotus Coffee",
+            "price": 80
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "آيس موكا وايت",
+            "price": 75,
+            "name_en": "Iced White Mocha",
+            "desc_ar": "آيس موكا بالشوكولاتة البيضاء",
+            "id": "ice-mocha-white",
+            "desc_en": "White chocolate, chilled espresso, and milk"
+          },
+          {
+            "price": 80,
+            "id": "ice-pistachio-coffee",
+            "name_ar": "آيس بيستاشيو كوفي",
+            "desc_en": "Pistachio cream, cold espresso, and milk",
+            "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "قهوة مثلجة بصوص الفستق الحلبي",
+            "name_en": "Iced Pistachio Coffee"
+          },
+          {
+            "price": 95,
+            "name_ar": "لاتيه جولد الموز",
+            "id": "latte-gold-banana",
+            "isLagunaSpecial": true,
+            "desc_en": "Banana cream, espresso, and golden caramel swirl",
+            "desc_ar": "لاتيه جولد الموز الفاخر بلمسة كراميل",
+            "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Gold Banana Latte"
+          }
+        ],
+        "id": "iced-coffee",
+        "name_en": "Iced Coffee",
+        "name_ar": "قهوة مثلجة"
+      },
+      {
+        "desc_en": "Blended ice drinks with rich cream and flavored drizzles",
+        "desc_ar": "مشروبات فرابيه مخفوقة بالثلج والكريمة الغنية",
+        "id": "frappe",
+        "name_en": "Frappé",
+        "name_ar": "فرابيه",
+        "items": [
+          {
+            "name_ar": "فانيليا",
+            "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Vanilla Frappé",
+            "desc_ar": "فرابيه فانيليا ناعم مع الكريمة",
+            "desc_en": "Blended vanilla cream frappé",
+            "price": 75,
+            "id": "frappe-vanilla"
+          },
+          {
+            "price": 75,
+            "desc_en": "Rich blended chocolate ice frappé",
+            "desc_ar": "فرابيه شوكولاتة مثلج غني",
+            "id": "frappe-chocolate",
+            "name_en": "Chocolate Frappé",
+            "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "شوكوليت"
+          },
+          {
+            "price": 75,
+            "name_ar": "كراميل",
+            "image": "https://images.unsplash.com/photo-1553787499-6f9133860278?auto=format&fit=crop&w=800&q=80",
+            "id": "frappe-caramel",
+            "name_en": "Caramel Frappé",
+            "desc_en": "Caramel sauce blended with cold cream and ice",
+            "desc_ar": "فرابيه كراميل بالكريمة المخفوقة"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "نوتيلا",
+            "desc_ar": "فرابيه نوتيلا بالشوكولاتة والبندق",
+            "id": "frappe-nutella",
+            "desc_en": "Blended Nutella hazelnut cream frappé",
+            "name_en": "Nutella Frappé",
+            "price": 75
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "موكا",
+            "desc_ar": "فرابيه موكا بالإسبريسو والشوكولاتة",
+            "price": 85,
+            "desc_en": "Espresso and chocolate blended frappé",
+            "name_en": "Mocha Frappé",
+            "id": "frappe-mocha"
+          },
+          {
+            "name_ar": "بندق",
+            "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Hazelnut Frappé",
+            "id": "frappe-hazelnut",
+            "desc_ar": "فرابيه بنكهة البندق المحمص",
+            "price": 85,
+            "desc_en": "Roasted hazelnut syrup and blended cream"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1553787499-6f9133860278?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Pistachio Frappé",
+            "desc_ar": "فرابيه الفستق الحلبي الملكي",
+            "desc_en": "Blended pistachio cream with pistachio dust",
+            "name_ar": "بيستاشيو",
+            "price": 90,
+            "id": "frappe-pistachio"
+          },
+          {
+            "id": "frappe-cookies",
+            "name_en": "Cookies Frappé",
+            "desc_en": "Chocolate cookies blended with ice and cream",
+            "price": 85,
+            "desc_ar": "فرابيه كوكيز مع قطع الشوكولاتة المقرمشة",
+            "name_ar": "كوكيز",
+            "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            "price": 110,
+            "name_ar": "لاجونا",
+            "isLagunaSpecial": true,
+            "image": "https://images.unsplash.com/photo-1553787499-6f9133860278?auto=format&fit=crop&w=800&q=80",
+            "id": "frappe-laguna",
+            "desc_en": "Laguna signature blend of coffee, chocolate and nuts",
+            "desc_ar": "فرابيه لاجونا الخاص بالشوكولاتة والمكسرات الفاخرة",
+            "name_en": "Signature Laguna Frappé"
+          },
+          {
+            "id": "frappe-kinder",
+            "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80",
+            "desc_en": "Blended Kinder chocolate with sweet cream",
+            "desc_ar": "فرابيه شوكولاتة كندر الأصلية",
+            "name_en": "Kinder Frappé",
+            "price": 90,
+            "name_ar": "كندر"
+          }
+        ]
+      },
+      {
+        "name_ar": "سموذي",
+        "id": "smoothies",
+        "items": [
+          {
+            "name_ar": "بينا كولا",
+            "price": 70,
+            "desc_en": "Pineapple and coconut cream blended with ice",
+            "desc_ar": "أناناس وجوز هند مثلج استوائي",
+            "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80",
+            "id": "smoothie-pina-colada",
+            "name_en": "Piña Colada Smoothie"
+          },
+          {
+            "name_ar": "بلوبيري",
+            "price": 70,
+            "id": "smoothie-blueberry",
+            "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Blueberry Smoothie",
+            "desc_en": "Real blueberries crushed with ice",
+            "desc_ar": "سموذي بلوبيري طبيعي منعش"
+          },
+          {
+            "price": 75,
+            "desc_en": "Strawberry, blueberry and raspberry blend",
+            "desc_ar": "سموذي التوت البري المشكل",
+            "name_en": "Mixed Berry Smoothie",
+            "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=800&q=80",
+            "name_ar": "ميكس بيري",
+            "id": "smoothie-mix-berry"
+          },
+          {
+            "desc_ar": "سموذي باشون فروت حامض وحلو",
+            "id": "smoothie-passion",
+            "desc_en": "Tropical passion fruit slush smoothie",
+            "image": "https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Passion Fruit Smoothie",
+            "name_ar": "باشون فروت",
+            "price": 70
+          },
+          {
+            "name_ar": "باشون ليمون",
+            "price": 75,
+            "id": "smoothie-passion-lemon",
+            "image": "https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Passion Lemon Smoothie",
+            "desc_en": "Passion fruit and fresh lemon blended with ice",
+            "desc_ar": "سموذي باشون مع ليمون فريش"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "سموذي مانجو طبيعي مثلج",
+            "desc_en": "Sweet mango fruit smoothie",
+            "name_en": "Mango Smoothie",
+            "id": "smoothie-mango",
+            "price": 80,
+            "name_ar": "مانجو"
+          },
+          {
+            "name_ar": "خوخ",
+            "id": "smoothie-peach",
+            "price": 70,
+            "desc_en": "Summer peach purée blended with ice",
+            "desc_ar": "سموذي خوخ منعش",
+            "image": "https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Peach Smoothie"
+          },
+          {
+            "name_en": "Lemon Mint Smoothie",
+            "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80",
+            "id": "smoothie-lemon-mint",
+            "desc_ar": "سموذي ليمون ونعناع مثلج",
+            "desc_en": "Fresh lemon juice and mint leaves ice slush",
+            "price": 65,
+            "name_ar": "ليمون نعناع"
+          },
+          {
+            "desc_en": "Juicy sweet watermelon blended over ice",
+            "image": "https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?auto=format&fit=crop&w=800&q=80",
+            "desc_ar": "سموذي بطيخ طبيعي منعش",
+            "name_en": "Watermelon Smoothie",
+            "id": "smoothie-watermelon",
+            "price": 70,
+            "name_ar": "بطيخ"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=800&q=80",
+            "name_en": "Strawberry Smoothie",
+            "desc_ar": "سموذي فراولة طازجة",
+            "desc_en": "Fresh strawberries blended with crushed ice",
+            "name_ar": "فراولة",
+            "price": 70,
+            "id": "smoothie-strawberry"
+          },
+          {
+            "name_en": "Pineapple Passion Smoothie",
+            "id": "smoothie-pineapple-passion",
+            "desc_en": "Golden pineapple and passion fruit tropical slush",
+            "desc_ar": "سموذي أناناس مع باشون فروت",
+            "price": 85,
+            "name_ar": "أناناس باشون",
+            "image": "https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=800&q=80"
+          }
+        ],
+        "name_en": "Smoothies",
+        "desc_en": "Thick ice-blended real fruit smoothies",
+        "desc_ar": "سموذي فواكه طبيعية مخفوقة مع الثلج المنعش"
+      }
+    ],
+    "name_en": "DRINKS",
+    "name_ar": "المشروبات"
+  }
+];

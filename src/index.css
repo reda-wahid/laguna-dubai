@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+@theme {
+  --color-laguna-dark: #030d0a;
+  --color-laguna-deep: #051410;
+  --color-laguna-surface: #0a1e18;
+  --color-laguna-surface-elevated: #0f2b23;
+  --color-laguna-surface-highlight: #153c31;
+  --color-laguna-gold: #c9a24b;
+  --color-laguna-gold-light: #dfbe6f;
+  --color-laguna-gold-dark: #9c7b37;
+  --color-laguna-ivory: #f7f4ea;
+  --color-laguna-muted: #8fa89b;
+  --color-laguna-border: rgba(201, 162, 75, 0.22);
+
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-arabic: 'Cairo', system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #030d0a;
+}
+
+body {
+  background-color: #030d0a;
+  color: #f7f4ea;
+  overflow-x: hidden;
+}
+
+html[dir="rtl"] {
+  font-family: var(--font-arabic);
+}
+
+html[dir="ltr"] {
+  font-family: var(--font-sans);
+}
+
+.font-serif-brand {
+  font-family: var(--font-serif);
+}
+
+.font-arabic-brand {
+  font-family: var(--font-arabic);
+}
+
+/* Explicit pointer cursor for all clickable and interactive elements on hover, focus, and active */
+button,
+a,
+[role="button"],
+[role="tab"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+select,
+summary,
+label,
+.cursor-pointer,
+[onclick] {
+  cursor: pointer !important;
+}
+
+button:hover,
+a:hover,
+[role="button"]:hover,
+[role="tab"]:hover,
+select:hover,
+summary:hover,
+label:hover,
+.cursor-pointer:hover {
+  cursor: pointer !important;
+}
+
+button:active,
+a:active,
+[role="button"]:active,
+[role="tab"]:active,
+select:active,
+summary:active,
+label:active,
+.cursor-pointer:active {
+  cursor: pointer !important;
+}
+
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible,
+[role="tab"]:focus-visible {
+  outline: 2px solid #dfbe6f;
+  outline-offset: 2px;
+}
+
+/* Hide scrollbars for slick horizontal scrolling while maintaining swipe gesture */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth tap transitions */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Pulse highlight animation for searched item */
+@keyframes itemHighlightPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(223, 190, 111, 0.9);
+    transform: scale(1);
+    border-color: #dfbe6f;
+  }
+  30% {
+    box-shadow: 0 0 0 16px rgba(223, 190, 111, 0);
+    transform: scale(1.03);
+    border-color: #dfbe6f;
+  }
+  60% {
+    box-shadow: 0 0 0 8px rgba(223, 190, 111, 0.4);
+    transform: scale(1.01);
+    border-color: #dfbe6f;
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(223, 190, 111, 0);
+    transform: scale(1);
+    border-color: rgba(201, 162, 75, 0.3);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.search-target-highlight {
+  animation: itemHighlightPulse 2.2s cubic-bezier(0.16, 1, 0.3, 1) 2;
+  border-color: #dfbe6f !important;
+  z-index: 20;
+}
+
+/* Print styling for QR code table tent cards */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-qr-card,
+  #printable-qr-card * {
+    visibility: visible;
+  }
+  #printable-qr-card {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}

@@ -1,0 +1,65 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function isValidMenuDoc(data) {
+      return (data.sections is list || (data.sections is string && data.sections.size() > 0)) &&
+             data.lastModified is number;
+    }
+
+    function isValidUploadedImage(data) {
+      return data.id is string && data.id.size() <= 128 &&
+             data.dataUrl is string && data.dataUrl.size() > 0 &&
+             data.createdAt is number;
+    }
+
+    function isValidProduct(data) {
+      return data.id is string && data.id.size() <= 128 &&
+             data.name_en is string && data.name_en.size() <= 200 &&
+             data.name_ar is string && data.name_ar.size() <= 200 &&
+             data.image is string;
+    }
+
+    function isAdmin() {
+      return request.auth != null && (
+        request.auth.token.email == 'reda0220220@gmail.com' ||
+        request.auth.token.email == 'redawahid00@gmail.com' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    // Default deny for unmanaged collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Public digital restaurant menu: readable worldwide, updatable by menu manager
+    match /menu/{menuId} {
+      allow get, list: if isValidId(menuId);
+      allow create, update: if isValidId(menuId) && isValidMenuDoc(incoming());
+      allow delete: if isAdmin();
+    }
+
+    // Uploaded product images stored in Firestore
+    match /uploaded_images/{imageId} {
+      allow get, list: if isValidId(imageId);
+      allow create, update: if isValidId(imageId) && isValidUploadedImage(incoming());
+      allow delete: if isValidId(imageId);
+    }
+
+    // Individual menu products collection if synced directly
+    match /products/{productId} {
+      allow get, list: if isValidId(productId);
+      allow create, update: if isValidId(productId) && isValidProduct(incoming());
+      allow delete: if isValidId(productId);
+    }
+  }
+}
